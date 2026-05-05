@@ -30,6 +30,17 @@ def refresh_data():
 @app.on_event("startup")
 def startup():
     init_db()
+    # Seed data on startup if DB is empty
+    from app.database import SessionLocal, EONETEvent
+    db = SessionLocal()
+    count = db.query(EONETEvent).count()
+    db.close()
+    if count == 0:
+        print("[STARTUP] Empty database — seeding data...")
+        fetch_eonet_events(days=30, limit=100)
+        fetch_news_for_all_events(limit=20)
+        run_scoring()
+        print("[STARTUP] Seeding complete.")
     scheduler = BackgroundScheduler()
     scheduler.add_job(refresh_data, "interval", minutes=30)
     scheduler.start()
