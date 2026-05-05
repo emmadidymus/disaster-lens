@@ -4,7 +4,7 @@ import { MapContainer, TileLayer, CircleMarker, Popup } from "react-leaflet";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from "recharts";
 import "leaflet/dist/leaflet.css";
 
-const API = "http://127.0.0.1:8000/api";
+const API = "https://disaster-lens-api.onrender.com/api";
 
 const CATEGORY_COLORS = {
   "Wildfires": "#e05c2a",
