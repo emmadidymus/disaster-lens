@@ -88,7 +88,7 @@ export default function App() {
         <div style={{ flex: 1, overflow: "hidden", position: "relative" }}>
 
           {activeTab === "map" && (
-            <MapContainer center={[20, 0]} zoom={2} style={{ height: "100%", width: "100%", background: "#0f1117" }}>
+            <MapContainer center={[39.5, -98.35]} zoom={4} style={{ height: "100%", width: "100%", background: "#0f1117" }}>
               <TileLayer
                 url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
                 attribution='&copy; OpenStreetMap &copy; CARTO'
